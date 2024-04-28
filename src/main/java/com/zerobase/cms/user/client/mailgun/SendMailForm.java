@@ -6,7 +6,6 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Builder
-@Data
 public class SendMailForm {
     private String from;
     private String to;
