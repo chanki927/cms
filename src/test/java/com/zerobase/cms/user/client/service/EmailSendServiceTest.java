@@ -14,7 +14,7 @@ class EmailSendServiceTest {
     @Test
     public void EmailTest() {
         // 숙제
-        mailgunClient.sendEmail(null);
+//        mailgunClient.sendEmail(null);
 
 //        String response = emailSendService.sendEmail();
 //        System.out.println(response);
