@@ -1,6 +1,6 @@
 package com.zerobase.cms.user.config.filter;
 
-import com.zerobase.cms.user.service.CustomerService;
+import com.zerobase.cms.user.service.customer.CustomerService;
 import com.zerobase.domain.config.JwtAuthenticationProvider;
 import com.zerobase.domain.domain.common.UserVo;
 import jakarta.servlet.*;
@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/cusromer/*")
+@WebFilter(urlPatterns = "/customer/*")
 @RequiredArgsConstructor
 public class CustomerFilter implements Filter {
 
