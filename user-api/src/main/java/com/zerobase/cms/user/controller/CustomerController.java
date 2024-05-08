@@ -5,7 +5,7 @@ import com.zerobase.cms.user.domain.customer.CustomerDto;
 import com.zerobase.cms.user.domain.model.Customer;
 import com.zerobase.cms.user.exception.CustomException;
 import com.zerobase.cms.user.service.CustomerBalanceService;
-import com.zerobase.cms.user.service.CustomerService;
+import com.zerobase.cms.user.service.customer.CustomerService;
 import com.zerobase.domain.config.JwtAuthenticationProvider;
 import com.zerobase.domain.domain.common.UserVo;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ public class CustomerController {
     private final CustomerService customerService;
     private final CustomerBalanceService customerBalanceService;
 
-    @GetMapping("/getInfo")
+    @GetMapping("/getinfo")
     public ResponseEntity<CustomerDto> getInfo(@RequestHeader(name = "X-AUTH-TOKEN") String token) {
         UserVo vo = provider.getUserVo(token);
         Customer c = customerService.findByIdAndEmail(vo.getId(), vo.getEmail()).orElseThrow(
