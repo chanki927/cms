@@ -22,16 +22,15 @@ public class Customer extends BaseEntity {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String email;
     private String name;
     private String password;
     private String phone;
     private LocalDate birth;
-
     private LocalDateTime verifyExpiredAt;
     private String verificationCode;
     private boolean verify;
+    private Integer balance;
 
     @Column(columnDefinition = "int default 0")
     private Integer balance;
