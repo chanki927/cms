@@ -6,15 +6,7 @@ plugins {
 
 group = 'com.zerobase.cms.user'
 
-java {
-    sourceCompatibility = '17'
-}
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
+version 'unspecified'
 
 repositories {
     mavenCentral()
@@ -24,20 +16,34 @@ ext {
     set('springCloudVersion', "2023.0.1")
 }
 
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
 dependencies {
     implementation project(path: ":z-domain", configuration: 'default')
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
-    implementation 'org.springframework.data:spring-data-envers'
+//    implementation 'org.springframework.boot:spring-boot-starter:3.0.0'
     implementation 'com.mysql:mysql-connector-j'
     implementation 'org.apache.commons:commons-lang3:3.12.0'
-    testImplementation 'com.h2database:h2'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    implementation 'org.springframework.data:spring-data-envers'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+    // redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    testImplementation ('it.ozimov:embedded-redis:0.7.3') {
+        exclude group: "org.slf4j", module: "slf4j-simple"
+    }
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'com.h2database:h2'
 }
 
 dependencyManagement {
