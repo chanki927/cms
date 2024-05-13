@@ -1,20 +1,20 @@
-### 회원 가입 (고객)
-POST http://localhost:8081/signup/customer
+### 회원 가입 (셀러)
+POST http://localhost:8081/signup/seller
 Content-Type: application/json
 
 {
   "email": "chank2@naver.com",
   "name": "myName",
-  "password": "pw",
+  "password": "my",
   "birth": "1993-09-27",
   "phone": "01091319927"
 }
 
-### 이메일 인증 (고객)
-GET http://localhost:8081/signup/customer/verify?email=chanki2@naver.com&code=
+### 이메일 인증 (셀러)
+GET http://localhost:8081/signup/seller/verify?email=chanki2@naver.com&code=
 
-### 로그인 (고객)
-POST http://localhost:8081/signin/customer
+### 로그인 (셀러)
+POST http://localhost:8081/signin/seller
 Content-Type: application/json
 
 {
