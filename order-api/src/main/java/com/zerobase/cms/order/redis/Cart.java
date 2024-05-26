@@ -14,12 +14,16 @@ import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
-@RedisHash("basket")
+@RedisHash("cart")
 public class Cart {
     @Id
     private Long customerId;
     private List<Product> products = new ArrayList<>();
     private List<String> messages = new ArrayList<>();
+
+    public Cart(Long customerId) {
+        this.customerId = customerId;
+    }
 
     public void addMessages(String message) {
         messages.add(message);
